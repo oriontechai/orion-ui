@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { User } from '@/models';
+import { User } from '../../models';
 
 export const EmptyUserState: User = {
     id: "",
