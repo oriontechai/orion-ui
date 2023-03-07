@@ -19,7 +19,7 @@ import { IconContext } from 'react-icons';
 
 const NAV_ITEMS = [
     {
-        path: '/',
+        path: '/' + PUBLIC_ROUTES.HOME,
         label: "home"
     },
     {

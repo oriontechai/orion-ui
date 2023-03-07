@@ -1,5 +1,5 @@
 export const PUBLIC_ROUTES = {
-    HOME : "orion-ui",
+    HOME : "orion-ui/",
     FAQS : "orion-ui/faqs",
     LOGIN : "orion-ui/login",
     REGISTER : "orion-ui/register"
