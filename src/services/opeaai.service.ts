@@ -13,9 +13,7 @@ export const getResponse = async(messages : Array<Message>) => {
             'Authorization' : 'Bearer ' + OPENAI_API_KEY
         }
     }
-
-    console.log("messages", getMessages(messages));
-
+    
     const reqBody = {
         "model": MODEL,
         "messages": getMessages(messages)
