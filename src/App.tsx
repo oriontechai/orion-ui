@@ -21,7 +21,7 @@ function App() {
     <AppWrapper>
       <Suspense fallback={<>Cargando...</>}>
         <Provider store={store}>
-          <BrowserRouter>
+          <HashRouter>
             <Routes>
               <Route path={PUBLIC_ROUTES.HOME} element={<Home />} />
 
@@ -47,7 +47,7 @@ function App() {
 
               <Route path="*" element={<>NOT FOUND 404</>} />
             </Routes>
-          </BrowserRouter>
+          </HashRouter>
         </Provider>
       </Suspense>
     </AppWrapper>
