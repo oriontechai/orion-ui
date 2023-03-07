@@ -26,10 +26,16 @@ export const MessageWrapper = styled.div`
     word-break: break-word;
 `;
 
-export const Text = styled.p<MessageContainerProps>`
+interface TextProps{
+    isFromUser : boolean;
+    isDots: boolean;
+} 
+
+export const Text = styled.p<TextProps>`
     font-family: 'Poppins', 'sans-serif';
+    min-width: 2.4rem;
     font-size: 0.875rem/* 14px */;
     line-height: 1.25rem/* 20px */;
-    margin-right: 0.5rem/* 8px */;
+    margin-right: ${ props => props.isDots ? '0' : '0.5rem'};
     color: ${ props => props.isFromUser ? '#000000' : '#ffffff'};
 `;

@@ -4,17 +4,16 @@ import { useEffect } from "react";
 
 interface MessageInputProps {
     submitMessage: (msg: string) => void,
-    allowSubmit: boolean
+    disabled: boolean
 }
 
-const MessageInput = ({ submitMessage, allowSubmit }: MessageInputProps) => {
+const MessageInput = ({ submitMessage, disabled }: MessageInputProps) => {
 
     useEffect(() => {
         const listener = (e: any) => {
-            if (e.code === "Enter" && allowSubmit) {
+            if (e.code === "Enter") {
                 const inputEle = (document.getElementById("msgInput") as HTMLInputElement);
                 if (inputEle.value.length > 0) {
-                    allowSubmit = false;
                     submitMessage(inputEle.value);
                     inputEle.value = "";
                 }
@@ -27,9 +26,9 @@ const MessageInput = ({ submitMessage, allowSubmit }: MessageInputProps) => {
 
     return(
         <MessageInputWrapper>
-            <Input id="msgInput" type="text" placeholder="Send Message..." />
+            <Input id="msgInput" type="text" placeholder="Send Message..." disabled={disabled}/>
             
-            <SendButton>
+            <SendButton disabled={disabled}>
                 <IoIosSend color="white" size={25}/>
             </SendButton>
         </MessageInputWrapper>
