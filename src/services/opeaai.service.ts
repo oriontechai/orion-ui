@@ -1,9 +1,9 @@
-const OPENAI_CHAT_COMPLETION_URL = "https://api.openai.com/v1/chat/completions";
-const OPENAI_API_KEY = "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";
-const MODEL = "gpt-3.5-turbo";
-
-import axios, { AxiosRequestHeaders } from 'axios';
+import axios from 'axios';
 import { ChatGptResponse, Message } from '../models';
+
+const OPENAI_CHAT_COMPLETION_URL = "https://api.openai.com/v1/chat/completions";
+const OPENAI_API_KEY = "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";
+const MODEL = "gpt-3.5-turbo";
 
 export const getResponse = async(messages : Array<Message>) => {
 
