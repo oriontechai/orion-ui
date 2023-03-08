@@ -1,13 +1,13 @@
 export const PUBLIC_ROUTES = {
-    HOME : "orion-ui/",
-    FAQS : "orion-ui/faqs",
-    LOGIN : "orion-ui/login",
-    REGISTER : "orion-ui/register"
+    HOME : "/",
+    FAQS : "faqs",
+    LOGIN : "login",
+    REGISTER : "register"
 };
 
 
 export const PRIVATE_ROUTES ={
-    APP : "orion-ui/app",
+    APP : "app",
     TEST_ORION : "test-orion",
     INTEGRATIONS : "integrations",
     ORION_SETTINGS : "orion-settings" 

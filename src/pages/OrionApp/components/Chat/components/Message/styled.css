@@ -1,7 +1,7 @@
 .dot-elastic {
     position: relative;
-    width: 8px;
-    height: 8px;
+    width: 6px;
+    height: 6px;
     border-radius: 5px;
     background-color: #f8f8f8;
     color: #f8f8f8;
@@ -16,23 +16,23 @@
   }
 
   .dot-elastic::before {
-    left: 30px;
-    width: 8px;
-    height: 8px;
+    left: 26px;
+    width: 6px;
+    height: 6px;
     border-radius: 5px;
     background-color: #f8f8f8;
     color: #f8f8f8;
-    animation: dot-elastic-before 0.8s infinite linear;
+    animation: dot-elastic-before 0.7s infinite linear;
   }
 
   .dot-elastic::after {
-    left: 15px;
-    width: 8px;
-    height: 8px;
+    left: 13px;
+    width: 6px;
+    height: 6px;
     border-radius: 5px;
     background-color: #f8f8f8;
     color: #f8f8f8;
-    animation: dot-elastic-after 0.8s infinite linear;
+    animation: dot-elastic-after 0.7s infinite linear;
   }
   
   @keyframes dot-elastic-before {

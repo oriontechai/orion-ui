@@ -1,6 +1,6 @@
 import { lazy, Suspense } from "react"
 import { Provider } from "react-redux"
-import { BrowserRouter, HashRouter, Route, Routes } from "react-router-dom"
+import { BrowserRouter, Route, Routes } from "react-router-dom"
 import store from "./redux/store"
 import { AppWrapper } from "./styled-components"
 import { AuthGuard, PRIVATE_ROUTES, PUBLIC_ROUTES } from "./utilities"
@@ -21,7 +21,7 @@ function App() {
     <AppWrapper>
       <Suspense fallback={<>Cargando...</>}>
         <Provider store={store}>
-          <HashRouter>
+          <BrowserRouter>
             <Routes>
               <Route path={PUBLIC_ROUTES.HOME} element={<Home />} />
 
@@ -47,7 +47,7 @@ function App() {
 
               <Route path="*" element={<>NOT FOUND 404</>} />
             </Routes>
-          </HashRouter>
+          </BrowserRouter>
         </Provider>
       </Suspense>
     </AppWrapper>
