@@ -2,7 +2,7 @@ import axios from 'axios';
 import { ChatGptResponse, Message } from '../models';
 
 const OPENAI_CHAT_COMPLETION_URL = "https://api.openai.com/v1/chat/completions";
-const OPENAI_API_KEY = "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";
+const OPENAI_API_KEY = "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";
 const MODEL = "gpt-3.5-turbo";
 
 export const getResponse = async(messages : Array<Message>) => {
