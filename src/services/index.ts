@@ -1,1 +1,1 @@
-export * from './opeaai.service';
+export * from './chat-completion.service';

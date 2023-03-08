@@ -4,7 +4,7 @@ import { MessageDisplay, MessageInput } from "./components";
 import { ChatWrapper } from "./styled-components";
 
 // SERVICES
-import { getResponse } from '../../../../services';
+import { getChatCompletion } from '../../../../services/chat-completion.service';
 
 const Chat = () => {
     const [conversation, setConversation] = useState(Array<MessageModel>);
@@ -28,7 +28,8 @@ const Chat = () => {
 
         if (isFromUser) {
             setDisableMsgInput(true);
-            const response = await getResponse([...conversation.slice(-10), msg]);
+            
+            const response = await getChatCompletion([...conversation.slice(-10), msg]);
             submitMessage(response, false);
             setDisableMsgInput(false);
         }
