@@ -1,5 +1,6 @@
 import { PUBLIC_ROUTES } from '../../utilities';
-import logo from '../../assets/orion_black.png';
+import black_logo from '../../assets/orion_black.png';
+import white_logo from '../../assets/logo_o.png';
 import { FlexCenter } from '../../styled-components';
 import { FiMenu } from 'react-icons/fi';
 import { FaTimes } from 'react-icons/fa';
@@ -19,7 +20,7 @@ import { IconContext } from 'react-icons';
 
 const NAV_ITEMS = [
     {
-        path: '/' + PUBLIC_ROUTES.HOME,
+        path: '/',
         label: "home"
     },
     {
@@ -36,12 +37,16 @@ const NAV_ITEMS = [
     }
 ];
 
-const Navbar = () => {
+interface NavbarProps{
+    darkMode: boolean;
+}
+
+const Navbar = ({darkMode} : NavbarProps) => {
 
     const [toggle, setToggle] = useState(false);
 
     const FA_TIMES_STYLE: IconContext = useMemo( () => ({
-        color: "#f0f0f0",
+        color: darkMode ? "#000000" : "#f0f0f0",
         size: "28px",
         style: {
             zIndex: 20, 
@@ -52,20 +57,20 @@ const Navbar = () => {
     }), []); 
 
     const FI_MENU_STYLE: IconContext = useMemo( () => ({
-        color: "#000000",
+        color: darkMode ? "#ffffff" : "#000000",
         size: "28px"
     }), []); 
 
     return(
         <Nav>
             <FlexCenter>
-                <Img src={logo}></Img>
-                <Label >ORION</Label>
+                <Img src={darkMode ? white_logo : black_logo}></Img>
+                <Label darkMode={darkMode}>ORION</Label>
             </FlexCenter>
             <WebItems>
                 {NAV_ITEMS.map((item, idx) => {
                     return(
-                        <WebItem key={item.label + idx.toString()} isLastItem={NAV_ITEMS.length - 1 == idx}>
+                        <WebItem key={item.label + idx.toString()} darkMode={darkMode} isLastItem={NAV_ITEMS.length - 1 == idx}>
                             <a href={item.path}>{item.label}</a>
                         </WebItem>   
                     );
@@ -86,11 +91,11 @@ const Navbar = () => {
                         </div>
                     </IconContext.Provider>
                 }
-                <MobileItemsContent toggle={toggle}>
+                <MobileItemsContent toggle={toggle} darkMode={darkMode}>
                     <MobileItems>
                         {NAV_ITEMS.map((item, idx) => {
                             return(
-                                <MobileItem key={item.label + idx.toString()}>
+                                <MobileItem key={item.label + idx.toString()} darkMode={darkMode}>
                                     <a href={item.path}>{item.label}</a>
                                 </MobileItem>   
                             );

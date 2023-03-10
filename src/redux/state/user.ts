@@ -1,20 +1,20 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { User } from '../../models';
+  
+interface User{
+    uid: string
+}
 
-export const EmptyUserState: User = {
-    id: "",
-    name: "",
-    email: "",
-    companyName: ""
+const initialState: User = {
+    uid: ''
 };
 
 export const userSlice = createSlice({
     name: "user",
-    initialState: EmptyUserState,
+    initialState: initialState,
     reducers: {
-        createUser: (state, action) => action.payload,
+        createUser: (state, action) => action.payload.uid,
         modifyUser: (state, action) => ({...state, ...action.payload}),
-        resetUser:  (state, action) => EmptyUserState
+        resetUser:  (state, action) => initialState
     }
 });
 

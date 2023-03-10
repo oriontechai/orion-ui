@@ -1,5 +1,16 @@
 import styled from 'styled-components';
 
+export const FlexCenter = styled.div`
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+`;
+
 export const AppWrapper = styled.div`
     position: relative;
     height: 90%;
@@ -7,6 +18,8 @@ export const AppWrapper = styled.div`
     background-color: transparent;
     border-radius: 1.5rem/* 24px */;
     display: flex;
+    align-self: center;
+    justify-self: center;
 `;
 
 interface SidebarProps{
@@ -67,6 +80,7 @@ export const SidebarMenu = styled.ul`
     padding-top: 1.5rem/* 24px */;
     margin: 0;
     padding: 0;
+    height: 84%;
 `;
 
 interface SidebarMenuItemPorps{
@@ -88,6 +102,29 @@ export const SidebarMenuItem = styled.li<SidebarMenuItemPorps>`
     column-gap: 1rem/* 16px */;
     margin-top: 0.5rem/* 8px */;
     background-color: ${ props => props.selected ? 'rgba(255,255,255,0.17)' : 'transparent'};
+`;
+
+export const LogoutButtonContainer = styled.div`
+    display: flex;
+    border-radius: 0.375rem/* 6px */;
+    padding: 0.5rem/* 8px */;
+    cursor: pointer;
+    &:hover{
+        background-color: rgba(255,255,255,0.17);
+    }
+    color: #FBFBFB;
+    font-size: 0.875rem/* 14px */;
+    line-height: 1.25rem/* 20px */;
+    align-items: center;
+    column-gap: 1rem/* 16px */;
+    margin-top: 0.5rem/* 8px */;
+`;
+
+export const LogoutLabel = styled.div<SidebarProps>`
+    transform-origin: left;
+    transition-duration: 200ms;
+    font-family: "Poppins", Sans-serif;
+    display: ${ props => !props.open ? 'none' : 'flex'};
 `;
 
 export const SidebarMenuItemText = styled.span<SidebarProps>`

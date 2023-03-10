@@ -3,27 +3,27 @@ import styled from "styled-components";
 export const Nav = styled.nav`
     display: flex;
     justify-content: space-between;
-    padding-top: 1.5rem;
-    padding-bottom: 1.5rem;
-    padding-left: 2.5rem;
-    padding-right: 2.5rem;
     font-family: 'Poppins', 'sans-serif';
-    @media (min-width: 768px) {
-        padding-left: 5rem;
-        padding-right: 5rem;
-    }
-    z-index: 20;
+    z-index: 30;
 `;
 
 export const Img = styled.img`
     width: 2.5rem;
+    @media (min-width: 1024px){
+        width: 4rem;
+    }
 `;
 
-export const Label = styled.label`
+interface LabelProps{
+    darkMode : boolean;
+}
+
+export const Label = styled.label<LabelProps>`
     margin-left: 0.5rem;
     font-size: 1.25rem;
     line-height: 1.75rem;
     font-weight: 700;
+    color: ${ props => props.darkMode ? "#f8f8f8" : "#010101"};
 `;
 
 export const WebItems = styled.ul`
@@ -39,12 +39,14 @@ export const WebItems = styled.ul`
 
 interface WebItemProps {
     readonly isLastItem: boolean;
+    readonly darkMode: boolean;
 }
 
 export const WebItem = styled.li<WebItemProps>`
     text-transform: uppercase;
     cursor: pointer;
     margin-right: 2.5rem;
+    color: ${ props => props.darkMode ? "#f8f8f8" : "#010101"};
     ${({ isLastItem }) => isLastItem && `
         margin-right: 0px;
         background-image: linear-gradient(to bottom right, #a31e81, #1b32b4);
@@ -69,12 +71,13 @@ export const MobileItemsContainer = styled.div`
 
 interface MobileItemsContentProps{
     readonly toggle : boolean;
+    readonly darkMode : boolean;
 }
 
 export const MobileItemsContent = styled.div<MobileItemsContentProps>`
     display: ${ props => !props.toggle ? 'none' : 'flex'};
     padding: 1.5rem;
-    background-color: black;
+    background-color: ${ props => props.darkMode ? "white" : "black" };
     position: absolute;
     top: 0;
     right: 0;
@@ -96,9 +99,13 @@ export const MobileItems = styled.ul`
     align-items: center;
 `;
 
-export const MobileItem = styled.li`
+interface MobileItemProps{
+    readonly darkMode: boolean;
+}
+
+export const MobileItem = styled.li<MobileItemProps>`
     margin-top: 2.5rem;
     cursor: pointer;
-    color: #f8f8f8;
+    color: ${ props => props.darkMode ? "#010101" : "#f8f8f8" };
     text-transform: uppercase;
 `;

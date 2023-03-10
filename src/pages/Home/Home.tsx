@@ -27,7 +27,7 @@ const Home = () => {
     
     return(
         <WebWrapper>
-            <Navbar />
+            <Navbar darkMode={false}/>
 
             <Body>
                 <BrainSection>
