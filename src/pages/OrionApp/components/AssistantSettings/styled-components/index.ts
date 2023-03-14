@@ -1,0 +1,1 @@
+export * from './settings.styled.component';
